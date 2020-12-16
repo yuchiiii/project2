@@ -1,0 +1,14 @@
+Package: project2
+Title: Project2 For Stat302
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Yuchi",
+           family = "Hsieh",
+           role = c("aut", "cre"),
+           email = "hsiehy8@uw.edu")
+Description: This package demonstrates how to build to a package for STAT302.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
