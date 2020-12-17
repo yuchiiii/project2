@@ -88,6 +88,24 @@ From the graph, we can see that the data of different continents cluster togethe
 ## my_knn_cv
 
 ```{r}
+# Predict output class species using covariates.
+# # Clean the dataset.
+penguins_df <- my_penguins
+penguins_df <- na.omit(penguins_df)
+penguins_df$species <- as.character(penguins_df$species)
+
+# Vectors to store the training misclassification rate and cv misclassification rate.
+train_rate <- vector()
+cv_rate <- vector()
+
+# Apply the function to the penguins data.
+for (i in 1:10) {
+  knn_result <- my_knn_cv(penguins_df, penguins_df$species, i, 5)
+  cv_rate[i] <- knn_result$cv_err
+  result <- knn_result$class
+  train_err <- sum(knn_result$class != penguins_df$species) /    length(penguins_df$species)
+  train_rate[i] <- train_err
+}
 
 
 
