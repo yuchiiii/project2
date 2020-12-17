@@ -31,6 +31,7 @@ library(project2)
 
 ```{r setup, echo=FALSE}
 library(project2)
+library(ggplot2)
 ```
 
 # Tutorials 
@@ -43,20 +44,55 @@ my_t.test(data, "two.sided", 60)
 my_t.test(data, "less", 60)
 my_t.test(data, "greater", 60)
 ```
-For the first test, the alternative hypothesis is mu doesn't equal to 60. The p-value of the first test is 0.0932 which is greater than the cut-off. Thus, we cannot reject the that mu equals to 60. 
+For the first test, the alternative hypothesis is mu doesn't equal to 60. The p-value of the first test is 0.0932 which is greater than the cut-off. Thus, we cannot reject that the true mean of life expectancy equals to 60. 
 
-For the second test, the alternative hypothesis is that mu is less than 60. The p-value of the second test is 0.046 which is smaller than 0.05. We can reject the null hypothesis in favor of the alternative hypothesis, which states that mu is less than 60.
+For the second test, the alternative hypothesis is that mu is less than 60. The p-value of the second test is 0.046 which is smaller than 0.05. We can reject the null hypothesis in favor of the alternative hypothesis, which states that the true mean of life expectancy is less than 60.
 
-For the third test, the alternative hypothesis is that mu is greater than 60. The p-value of this t-test is 0.953 which is much larger than the cut-off. Thus, we cannot reject that mu is equal to 60. 
+For the third test, the alternative hypothesis is that mu is greater than 60. The p-value of this t-test is 0.953 which is much larger than the cut-off. Thus, we cannot reject that the true mean of life expectancy is equal to 60. 
 
 ## my_lm
+
+```{r, fig.width=7}
+# Demonstrate a regression.
+test_data <- my_gapminder
+test_formula <- lifeExp ~ gdpPercap + continent
+mylm_result <- my_lm(test_formula, test_data)
+mylm_result
+
+# Use ggplot2 to plot the Actual vs. Fitted values
+my_coef <- mylm_result$Estimate
+my_matrix <- model.matrix(lifeExp ~ gdpPercap + continent, data = my_gapminder)
+y_hat <- my_matrix %*% as.matrix(my_coef)
+my_df <- data.frame("actual" = my_gapminder$lifeExp, "fitted" = y_hat, "continent" = my_gapminder$continent)
+ggplot(my_df, aes(x = fitted, y = actual)) +
+  geom_point(aes(colour = continent)) +
+  geom_abline(slope = 1, intercept = 0, col = "red", lty = 2) + 
+  theme_bw(base_size = 15) +
+  labs(x = "Fitted values", y = "Actual values", title = "Actual vs. Fitted") +
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+
+
+The `gdpPercap` coefficient means that there is a 4.4527e-4 average change in the life expectancy for every unit change in `gdpPercap`. (If all other coefficients are held constant). 
+
+The hypothesis testing for `gdpPercap` coefficient will be: 
+
+H0: beta = 0
+
+H1: beta != 0
+
+The p-value for `gdpPercap` coefficient is 8.55e-73 which is much smaller than 0.05 so we can reject the null hyphthesis in favor of the alternative hypothesis. Thus, there is a statistically significant relationship between `gdpPercap` and `lifeExp`.
+
+From the graph, we can see that the data of different continents cluster together. Although there is a linear pattern across continents, it is not very obvious. For Africa and Asia, many data is in a vertical relationship, which shows that the model is not accurate. Thus, it might not be a good idea to incorporate the continents into the linear model. 
+
+## my_knn_cv
 
 ```{r}
 
 
+
+
 ```
-
-
 
 
 
