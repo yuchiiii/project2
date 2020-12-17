@@ -3,6 +3,16 @@
   [![Codecov test coverage](https://codecov.io/gh/yuchiiii/project2/branch/master/graph/badge.svg)](https://codecov.io/gh/yuchiiii/project2?branch=master)
   <!-- badges: end -->
   
+## Installation
+
+To download the project2 package, use the code below.
+
+``` r
+# install.packages("devtools")
+devtools::install_github("yuchiiii/project2")
+library(project2)
+```  
+  
 ## Use
 
 The vignette demonstrates example usage of all main functions. You can see the vignette by using the following code (note that this requires a TeX installation to view properly):

@@ -14,9 +14,6 @@ The main data frame \code{gapminder} has 1704 rows and 6 variables:
 \item{pop}{population}
 \item{gdpPercap}{GDP per capita (US$, inflation-adjusted)}
 }
-
-The supplemental data frame \code{\link{gapminder_unfiltered}} was not
-filtered on \code{year} or for complete data and has 3313 rows.
 }
 \source{
 \url{http://www.gapminder.org/data/}
@@ -31,6 +28,7 @@ This data and documentation come from the \code{gapminder} package,
 available as \code{\link[gapminder]{gapminder}}.
 }
 \examples{
+gapminder <- my_gapminder
 str(gapminder)
 head(gapminder)
 summary(gapminder)
@@ -61,8 +59,5 @@ gapminder \%>\%
   arrange(worst_le_delta)
 }
 
-}
-\seealso{
-\code{\link{country_colors}} for a nice color scheme for the countries
 }
 \keyword{datasets}

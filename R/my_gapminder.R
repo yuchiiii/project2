@@ -15,13 +15,10 @@
 #'   \item{gdpPercap}{GDP per capita (US$, inflation-adjusted)}
 #'   }
 #'
-#' The supplemental data frame \code{\link{gapminder_unfiltered}} was not
-#' filtered on \code{year} or for complete data and has 3313 rows.
-#'
 #' @source \url{http://www.gapminder.org/data/}
-#' @seealso \code{\link{country_colors}} for a nice color scheme for the countries
 #' @importFrom tibble tibble
 #' @examples
+#' gapminder <- my_gapminder
 #' str(gapminder)
 #' head(gapminder)
 #' summary(gapminder)

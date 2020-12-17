@@ -7,6 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "hsiehy8@uw.edu")
 Description: This package demonstrates how to build to a package for STAT302.
+Imports: tibble, stats, dplyr, magrittr, randomForest, class
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

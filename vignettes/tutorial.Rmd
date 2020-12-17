@@ -15,6 +15,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+
+# Introduction
+It is a tutorial for the project2 in Stat302. It includes four functions and their tutorials which are `my_t.test`, `my_lm`, `my_knn_cv`, `my_rf_cv`.
+
+## Installation
+
+To download the project2 package, use the code below.
+
+``` {r, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("yuchiiii/project2")
 library(project2)
 ```
+
+```{r setup, echo=FALSE}
+library(project2)
+```
+
+
+
+
+
+
+
+
+
