@@ -2,3 +2,4 @@
 
 export(f_to_c)
 export(my_pow)
+importFrom(tibble,tibble)
