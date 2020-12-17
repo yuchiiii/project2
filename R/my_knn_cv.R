@@ -6,7 +6,6 @@
 #' @param cl True class value of your training data.
 #' @param k_nn An integer representing the number of neighbors.
 #' @param k_cv An integer representing the number of folds.
-#' @imports dplyr, class
 #' @keywords prediction
 #' @return A list with \code{class}, a vector of the predicted class Ŷi for all
 #'   observations and \code{cv_err}, a numeric with the cross-validation misclassification
