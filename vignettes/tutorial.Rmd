@@ -1,5 +1,5 @@
 ---
-title: "Project 2: project2 Tutorial"
+title: "project2 Tutorial"
 author: "Yuchi Hsieh"
 output: rmarkdown::html_vignette
 vignette: >
@@ -31,6 +31,29 @@ library(project2)
 
 ```{r setup, echo=FALSE}
 library(project2)
+```
+
+# Tutorials 
+
+## my_t.test
+
+```{r}
+data <- my_gapminder$lifeExp
+my_t.test(data, "two.sided", 60)
+my_t.test(data, "less", 60)
+my_t.test(data, "greater", 60)
+```
+For the first test, the alternative hypothesis is mu doesn't equal to 60. The p-value of the first test is 0.0932 which is greater than the cut-off. Thus, we cannot reject the that mu equals to 60. 
+
+For the second test, the alternative hypothesis is that mu is less than 60. The p-value of the second test is 0.046 which is smaller than 0.05. We can reject the null hypothesis in favor of the alternative hypothesis, which states that mu is less than 60.
+
+For the third test, the alternative hypothesis is that mu is greater than 60. The p-value of this t-test is 0.953 which is much larger than the cut-off. Thus, we cannot reject that mu is equal to 60. 
+
+## my_lm
+
+```{r}
+
+
 ```
 
 
