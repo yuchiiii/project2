@@ -118,16 +118,22 @@ Cross-validation splits data into k parts and choose one part as test data while
 
 ```{r}
 iter <- c(2, 5, 10)
+rf_boxplot <- data.frame(matrix(ncol = 2, nrow = 90))
 rf_result <- data.frame(matrix(ncol = 3, nrow = 30))
 for (i in 1:3) {
   k <- iter[i]
   for (j in 1:30) {
     ans <- my_rf_cv(k)
     rf_result[j,i] <- ans
+    rf_boxplot[(i-1)*30+j, 1] <- ans
+    rf_boxplot[(i-1)*30+j, 2] <- k
   }
 }
 colnames(rf_result) <- c("k = 2", "k = 5", "k = 10")
-boxplot(rf_result, xlab = "k", ylab = "CV estimated MSE")
+colnames(rf_boxplot) <- c("CV", "k")
+ggplot(rf_boxplot, aes(x = k, y = CV, group = k)) +
+  geom_boxplot() +
+  labs(title = "Simulations of k = 2, 5, 10")
 result_table <- data.frame(matrix(ncol = 2, nrow = 3))
 result_table[1,1] <- mean(rf_result[, 1])
 result_table[2,1] <- mean(rf_result[, 2])
